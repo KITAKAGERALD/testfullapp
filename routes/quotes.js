@@ -11,5 +11,14 @@ router.get('/', function(req, res, next) {
     next(err);
   }
 });
+router.post('/', function(req, res,next){
+  try{
+res.json(quotes.create(req.body));
+  }
+  catch(err){
+ console.log(`Error cannot create post ${err.message}`);
+next(err);
+  }
+});
 
 module.exports = router;

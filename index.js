@@ -1,9 +1,10 @@
 
 const express = require('express');
 const app = express();
-const port = 3000 || process.env.PORT;
+const port =  process.env.PORT ||3000;
 const quotesRouter = require('./routes/quotes');
-require("dotenv").config();
+app.use(express.json());
+require("dotenv").config;
 
 app.get('/', (req, res) => {
   res.json({message: 'alive'});
